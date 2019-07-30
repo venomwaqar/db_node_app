@@ -1,0 +1,11 @@
+{
+    "env": {
+        "DB_TYPE": "mysql",
+        "MYSQL_DB_USER": "root",
+        "MYSQL_DB_PASSWORD": "some-mysql2",
+        "MYSQL_DB_HOST": "my-secret-pw",
+        "MYSQL_SCHEMA": "dummy",
+        "NODE_ENV": "development"
+    }
+}
+   
