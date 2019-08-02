@@ -39,7 +39,7 @@ exports.postAddProduct = (req, res, next) => {
     .then(result => {
       // console.log(result);
       console.log('Created Product');
-      res.redirect('/admin/products');
+      res.redirect(process.env.HOST_PREFIX ? process.env.HOST_PREFIX : '' + "/admin/products");
     })
     .catch(err => {
       console.log(err);
@@ -49,7 +49,7 @@ exports.postAddProduct = (req, res, next) => {
 exports.getEditProduct = (req, res, next) => {
   const editMode = req.query.edit;
   if (!editMode) {
-    return res.redirect('/');
+    return res.redirect(process.env.HOST_PREFIX ? process.env.HOST_PREFIX : '/');
   }
   const prodId = req.params.productId;
   req.user
@@ -58,7 +58,7 @@ exports.getEditProduct = (req, res, next) => {
     .then(products => {
       const product = products[0];
       if (!product) {
-        return res.redirect('/');
+        return res.redirect(process.env.HOST_PREFIX ? process.env.HOST_PREFIX : '/');
       }
       res.render('admin/edit-product', {
         pageTitle: 'Edit Product',
@@ -86,7 +86,7 @@ exports.postEditProduct = (req, res, next) => {
     })
     .then(result => {
       console.log('UPDATED PRODUCT!');
-      res.redirect('/admin/products');
+      res.redirect(process.env.HOST_PREFIX ? process.env.HOST_PREFIX : '' + "/admin/products");
     })
     .catch(err => console.log(err));
 };

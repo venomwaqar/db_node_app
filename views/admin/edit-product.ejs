@@ -1,13 +1,13 @@
 <%- include('../includes/head.ejs') %>
-    <link rel="stylesheet" href="/css/forms.css">
-    <link rel="stylesheet" href="/css/product.css">
+    <link rel="stylesheet" href="<%= process.env.HOST_PREFIX ? process.env.HOST_PREFIX : ''%>/css/forms.css">
+    <link rel="stylesheet" href="<%= process.env.HOST_PREFIX ? process.env.HOST_PREFIX : ''%>/css/product.css">
 </head>
 
 <body>
    <%- include('../includes/navigation.ejs') %>
 
     <main>
-        <form class="product-form" action="/admin/<% if (editing) { %>edit-product<% } else { %>add-product<% } %>" method="POST">
+        <form class="product-form" action="<%= process.env.HOST_PREFIX ? process.env.HOST_PREFIX : ''%>/admin/<% if (editing) { %>edit-product<% } else { %>add-product<% } %>" method="POST">
             <div class="form-control">
                 <label for="title">Title</label>
                 <input type="text" name="title" id="title" value="<% if (editing) { %><%= product.title %><% } %>">

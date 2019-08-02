@@ -11,7 +11,7 @@ const Cart = require('./models/cart');
 const CartItem = require('./models/cart-item');
 const Order = require('./models/order');
 const OrderItem = require('./models/order-item');
-
+var http = require('http');
 const app = express();
 
 app.set('view engine', 'ejs');
@@ -33,9 +33,9 @@ app.use((req, res, next) => {
     .catch(err => console.log(err));
 });
 
-app.use('/admin', adminRoutes);
-app.use(shopRoutes);
-app.use('/api', apiRoutes);
+app.use((process.env.HOST_PREFIX ? process.env.HOST_PREFIX : '')  + '/admin', adminRoutes);
+app.use((process.env.HOST_PREFIX ? process.env.HOST_PREFIX : '') + '/', shopRoutes);
+app.use((process.env.HOST_PREFIX ? process.env.HOST_PREFIX : '') + '/api', apiRoutes);
 
 app.use(errorController.get404);
 
@@ -70,5 +70,9 @@ sequelize
     app.listen(3000);
   })
   .catch(err => {
-    console.log(err);
+    http.createServer(function(request, response) {  
+      response.writeHeader(200, {"Content-Type": "text/html"});  
+      response.write(err.name + " <br> " + err.message);  
+      response.end();
+  }).listen(3000);
   });

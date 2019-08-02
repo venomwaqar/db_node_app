@@ -1,4 +1,4 @@
-<form action="/cart" method="post">
+<form action="<%= process.env.HOST_PREFIX ? process.env.HOST_PREFIX : ''%>/cart" method="post">
     <button class="btn" type="submit">Add to Cart</button>
     <input type="hidden" name="productId" value="<%= product.id %>">
 </form>

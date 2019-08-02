@@ -4,23 +4,27 @@
     <nav class="main-header__nav">
         <ul class="main-header__item-list">
             <li class="main-header__item">
-                <a class="<%= path === '/' ? 'active' : '' %>" href="/">Shop</a>
+                <a class="<%= path === '/' ? 'active' : '' %>" href="<%= process.env.HOST_PREFIX ? process.env.HOST_PREFIX : '/' %>">Shop</a>
             </li>
             <li class="main-header__item">
-                <a class="<%= path === '/products' ? 'active' : '' %>" href="/products">Products</a>
+                <a class="<%= path === '/products' ? 'active' : '' %>" href="<%= process.env.HOST_PREFIX ? process.env.HOST_PREFIX : ''%>/products">Products</a>
             </li>
             <li class="main-header__item">
-                <a class="<%= path === '/cart' ? 'active' : '' %>" href="/cart">Cart</a>
+                <a class="<%= path === '/cart' ? 'active' : '' %>" href="<%= process.env.HOST_PREFIX ? process.env.HOST_PREFIX : ''%>/cart">Cart</a>
             </li>
             <li class="main-header__item">
-                <a class="<%= path === '/orders' ? 'active' : '' %>" href="/orders">Orders</a>
+                <a class="<%= path === '/orders' ? 'active' : '' %>" href="<%= process.env.HOST_PREFIX ? process.env.HOST_PREFIX : ''%>/orders">Orders</a>
             </li>
             <li class="main-header__item">
-                <a class="<%= path === '/admin/add-product' ? 'active' : '' %>" href="/admin/add-product">Add Product
+                <a class="<%= path === '/admin/add-product' ? 'active' : '' %>" href="<%= process.env.HOST_PREFIX ? process.env.HOST_PREFIX : ''%>/admin/add-product">Add Product
                 </a>
             </li>
             <li class="main-header__item">
-                <a class="<%= path === '/admin/products' ? 'active' : '' %>" href="/admin/products">Admin Products
+                <a class="<%= path === '/admin/products' ? 'active' : '' %>" href="<%= process.env.HOST_PREFIX ? process.env.HOST_PREFIX : ''%>/admin/products">Admin Products
+                </a>
+            </li>
+            <li class="main-header__item">
+                <a href="#" style="pointer-events: none;cursor: default;color: lawngreen;font-weight: 600;">Connected to DB: <%= process.env.MYSQL_DB_HOST %>
                 </a>
             </li>
         </ul>
@@ -30,23 +34,27 @@
 <nav class="mobile-nav">
         <ul class="mobile-nav__item-list">
                 <li class="mobile-nav__item">
-                    <a class="<%= path === '/' ? 'active' : '' %>" href="/">Shop</a>
+                    <a class="<%= path === '/' ? 'active' : '' %>" href="<%= process.env.HOST_PREFIX ? process.env.HOST_PREFIX : '/' %>">Shop</a>
                 </li>
                 <li class="mobile-nav__item">
-                    <a class="<%= path === '/products' ? 'active' : '' %>" href="/products">Products</a>
+                    <a class="<%= path === '/products' ? 'active' : '' %>" href="<%= process.env.HOST_PREFIX ? process.env.HOST_PREFIX : ''%>/products">Products</a>
                 </li>
                 <li class="mobile-nav__item">
-                    <a class="<%= path === '/cart' ? 'active' : '' %>" href="/cart">Cart</a>
+                    <a class="<%= path === '/cart' ? 'active' : '' %>" href="<%= process.env.HOST_PREFIX ? process.env.HOST_PREFIX : ''%>/cart">Cart</a>
                 </li>
                 <li class="mobile-nav__item">
-                    <a class="<%= path === '/orders' ? 'active' : '' %>" href="/orders">Orders</a>
+                    <a class="<%= path === '/orders' ? 'active' : '' %>" href="<%= process.env.HOST_PREFIX ? process.env.HOST_PREFIX : ''%>/orders">Orders</a>
                 </li>
                 <li class="mobile-nav__item">
-                    <a class="<%= path === '/admin/add-product' ? 'active' : '' %>" href="/admin/add-product">Add Product
+                    <a class="<%= path === '/admin/add-product' ? 'active' : '' %>" href="<%= process.env.HOST_PREFIX ? process.env.HOST_PREFIX : ''%>/admin/add-product">Add Product
                     </a>
                 </li>
                 <li class="mobile-nav__item">
-                    <a class="<%= path === '/admin/products' ? 'active' : '' %>" href="/admin/products">Admin Products
+                    <a class="<%= path === '/admin/products' ? 'active' : '' %>" href="<%= process.env.HOST_PREFIX ? process.env.HOST_PREFIX : ''%>/admin/products">Admin Products
+                    </a>
+                </li>
+                <li class="mobile-nav__item">
+                    <a href="#" style="pointer-events: none;cursor: default;color: lawngreen;font-weight: 600;">Connected to DB: <%= process.env.MYSQL_DB_HOST %>
                     </a>
                 </li>
             </ul>

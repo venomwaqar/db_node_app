@@ -97,7 +97,7 @@ exports.postCart = (req, res, next) => {
       });
     })
     .then(() => {
-      res.redirect('/cart');
+      res.redirect(process.env.HOST_PREFIX ? process.env.HOST_PREFIX : '' + '/cart');
     })
     .catch(err => console.log(err));
 };
@@ -114,7 +114,7 @@ exports.postCartDeleteProduct = (req, res, next) => {
       return product.cartItem.destroy();
     })
     .then(result => {
-      res.redirect('/cart');
+      res.redirect(process.env.HOST_PREFIX ? process.env.HOST_PREFIX : '' + '/cart');
     })
     .catch(err => console.log(err));
 };
@@ -144,7 +144,7 @@ exports.postOrder = (req, res, next) => {
       return fetchedCart.setProducts(null);
     })
     .then(result => {
-      res.redirect('/orders');
+      res.redirect(process.env.HOST_PREFIX ? process.env.HOST_PREFIX : '' + '/orders');
     })
     .catch(err => console.log(err));
 };
