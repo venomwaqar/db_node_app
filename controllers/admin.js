@@ -112,7 +112,7 @@ exports.postDeleteProduct = (req, res, next) => {
     })
     .then(result => {
       console.log('DESTROYED PRODUCT');
-      res.redirect('/admin/products');
+      res.redirect(process.env.HOST_PREFIX ? process.env.HOST_PREFIX : '' + '/admin/products');
     })
     .catch(err => console.log(err));
 };
